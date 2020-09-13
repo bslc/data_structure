@@ -1,0 +1,20 @@
+"""
+  Python implementaiton of a doubly linked list node
+    - node object has prev, key, and next
+"""
+
+
+class Node(object):
+    def __init__(self, prev=None, key=None, next=None):
+        self.prev = prev
+        self.key = key
+        self.next = next
+
+    def get_key(self):
+        return self.key
+
+    def get_prev(self):
+        return self.prev
+
+    def get_next(self):
+        return self.next
