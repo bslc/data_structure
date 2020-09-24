@@ -9,12 +9,3 @@ class Node(object):
         self.prev = prev
         self.key = key
         self.next = next
-
-    def get_key(self):
-        return self.key
-
-    def get_prev(self):
-        return self.prev
-
-    def get_next(self):
-        return self.next

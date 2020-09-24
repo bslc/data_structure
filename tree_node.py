@@ -13,15 +13,3 @@ class TreeNode(object):
         self.left = left
         self.right = right
         self.parent = parent
-
-    def get_value(self):
-        return self.value
-
-    def get_left(self):
-        return self.left
-
-    def get_right(self):
-        return self.right
-
-    def get_parent(self):
-        return self.parent

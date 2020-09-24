@@ -26,38 +26,6 @@ class NodeTest(unittest.TestCase):
         self.assertEqual(node.prev, node_prev)
         self.assertEqual(node.next, node_next)
 
-    def test_get_key(self):
-        """
-         - test get_key implementation
-         - returns True if variable exists after instantiation
-        """
-        node_prev = Node(key=1)
-        node_next = Node(key=2)
-        key = 5
-        node = Node(node_prev, key, node_next)
-        self.assertEqual(node.get_key(), key)
-
-    def test_get_prev(self):
-        """
-         - test get_prev implementation
-         - returns True if variable exists after instantiation
-        """
-        node_prev = Node(key=1)
-        node_next = Node(key=2)
-        key = 5
-        node = Node(node_prev, key, node_next)
-        self.assertEqual(node.get_prev(), node_prev)
-   
-    def test_get_next(self):
-        """
-         - test get_next implementation
-         - returns True if variable exists after instantiation
-        """
-        node_prev = Node(key=1)
-        node_next = Node(key=2)
-        key = 5
-        node = Node(node_prev, key, node_next)
-        self.assertEqual(node.get_next(), node_next)
 
 if __name__ == '__main__':
     unittest.main()

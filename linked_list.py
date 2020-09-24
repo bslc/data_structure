@@ -31,7 +31,7 @@ class LinkedList(object):
         current = self.head.next
         try: 
             while not found:
-                if current.get_key() == key:
+                if current.key == key:
                     found = True
                 else:
                     current = current.next

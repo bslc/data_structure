@@ -15,7 +15,7 @@ class LinkedListTest(unittest.TestCase):
         linked_list = LinkedList()
         self.assertEqual(type(linked_list).__name__, 'LinkedList')
         self.assertEqual(type(linked_list.head).__name__, 'Node')
-        self.assertEqual(linked_list.head.get_key(), None)
+        self.assertEqual(linked_list.head.key, None)
 
     def test_insert(self):
         """
@@ -25,7 +25,7 @@ class LinkedListTest(unittest.TestCase):
         linked_list = LinkedList()
         key = 5
         linked_list.insert(key)
-        self.assertEqual(linked_list.head.next.get_key(), 5)
+        self.assertEqual(linked_list.head.next.key, 5)
 
     def test_insert_with_multiple_linked(self):
         """
@@ -37,8 +37,8 @@ class LinkedListTest(unittest.TestCase):
         key_2 = "foo"
         linked_list.insert(key_1)
         linked_list.insert(key_2)
-        self.assertEqual(linked_list.head.next.get_key(), key_2)
-        self.assertEqual(linked_list.head.next.next.get_key(), key_1)
+        self.assertEqual(linked_list.head.next.key, key_2)
+        self.assertEqual(linked_list.head.next.next.key, key_1)
 
     def test_node_insert_link_to_prev(self):
         """ 
@@ -52,8 +52,8 @@ class LinkedListTest(unittest.TestCase):
         linked_list.insert(key_2)
         node_1 = linked_list.search(key_1)
         node_2 = linked_list.search(key_2)
-        self.assertEqual(node_1.prev.get_key(), key_2)
-        self.assertEqual(node_2.prev.get_key(), None)
+        self.assertEqual(node_1.prev.key, key_2)
+        self.assertEqual(node_2.prev.key, None)
 
     def test_search(self):
         """
@@ -66,9 +66,9 @@ class LinkedListTest(unittest.TestCase):
         linked_list.insert(key_1)
         linked_list.insert(key_2)
         node = linked_list.search(key_1)
-        self.assertEqual(node.get_key(), key_1)
+        self.assertEqual(node.key, key_1)
         node = linked_list.search(key_2)
-        self.assertEqual(node.get_key(), key_2)
+        self.assertEqual(node.key, key_2)
         self.assertRaises(KeyNotFoundError, linked_list.search, 'bar')
 
     def test_delete(self):
