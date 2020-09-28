@@ -1,7 +1,9 @@
 import unittest
 from stack import Stack
+from stack import StackUnderflowError 
 
 class StackTest(unittest.TestCase):
+
     def test_object(self):
         """
           - test if stack object has been implemented
@@ -56,6 +58,13 @@ class StackTest(unittest.TestCase):
         self.assertEqual(data2, check2)
         self.assertTrue(stack.is_empty())
 
+    def test_pop_empty(self):
+        """
+          - test pop if stack is empty
+          - returns underflow error
+        """
+        stack = Stack()
+        self.assertRaises(StackUnderflowError, stack.pop)
 
 if __name__ == '__main__':
     unittest.main()
