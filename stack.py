@@ -1,5 +1,5 @@
 """
-Python implementation of a stack.
+Python implementation of a stack based on CLSR pg 232-233
 
 the following function
  - is_empty
