@@ -1,10 +1,5 @@
 """
  - Python implementation of node for trees
- - methods implemented
-   - get_value
-   - get_left
-   - get_right
-   - get_parent
 """
 
 class TreeNode(object):

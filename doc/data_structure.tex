@@ -10,6 +10,11 @@
 \usepackage{pdflscape} % for 'landscape' environment
 \usepackage{booktabs}% http://ctan.org/pkg/booktabs
 \newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{xltabular}
+\usepackage{enumitem}
+% for line spacing in paragraph of itemize
+\usepackage{etoolbox} % <--- added
+\AtBeginEnvironment{itemize}{\linespread{.7}\selectfont}% <--- added
 
 \renewcommand\familydefault{\sfdefault}
 \usepackage{tgheros}
@@ -101,28 +106,141 @@ bindingoffset=0mm, top=20mm,bottom=20mm}
 \begin{document}
 
 \title{Data Structure and Algorithms Summary}
-%% \title{Programming Assignment \textnumero{} 5}
 
 \author{B. S. Chan}
 
 \date{\today}
 
-%% \maketitle
+%%%%% Stack %%%%%
 \newcommand{\stacknotes}{
-   \tabitem Last-in, first out (LIFO)&\tabitem push(), i.e., insert, to add new element to top&\tabitem O(1) for push&\tabitem O(n)\\
-  &\tabitem Underflows if attempt to pop an empty stack&\tabitem pop(), i.e., delete, to remove top element&\tabitem O(1) for pop&\\
-  &\tabitem Overflows if attempt to push to a full stack&\tabitem is\_empty() to check if stack is empty 
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item Last-in, first out (LIFO)
+\item Underflows if attempt to pop an empty stack
+\item Overflows if attempt to push to a full stack
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
 }
-\begin{landscape}
+\newcommand{\stackoperations}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item push(), i.e., insert, to add new element to top
+\item pop(), i.e., delete, to remove top element
+\item is\_empty() to check if stack is empty
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\stacktime}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item $\mathcal O(1)$ for push
+\item $\mathcal O(1)$ for pop
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\stackspace}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item $\mathcal O(1)$ for push
+\item $\mathcal O(1)$ for pop
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+%%%%% Queue %%%%%
+\newcommand{\queuenotes}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item First-in, first out (FIFO)
+\item Underflows if attempt to dequeue an empty queue
+\item Overflows if attempt to enqueue a full queue
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\queueoperations}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item enqueue(), i.e., insert, to add new element to back of the queue
+\item dequeue(), i.e., delete, to remove from front of the queue
+\item is\_empty() to check if stack is empty 
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\queuetime}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item $\mathcal O(1)$ for enqueue
+\item $\mathcal O(1)$ for dequeue
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\queuespace}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item $\mathcal O(n)$
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+%%%%% Binary Search Tree %%%%%
+\newcommand{\bstnotes}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item each node contains key, as well as links to left, right, and parent nodes. 
+\item \emph{None} if left, right, or parent node is missing
+\item \emph{root} node is the only node that should have parent node missing
+\item \emph{binary search tree property} if $y$ is in the left (right) subtree of $x$, then $y.key\leq (\geq) x.key$
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\bstoperations}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item search()
+\item minimum()
+\item maximum()
+\item predecessor()
+\item successor()
+\item insert()
+\item delete()
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\bsttime}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item basic operations run $\mathcal O(\log n)$ for average and worst-case times
+\item can be linear in time, i.e., $\mathcal O(n)$, if tree is shape of linear chain
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}
+\newcommand{\bstspace}{
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[topsep=1pt,partopsep=.5ex,parsep=0ex, leftmargin=3mm]
+\item 
+\end{itemize}
+\vspace{.05cm}
+\end{minipage}
+}\begin{landscape}
+
+
 \section*{Data Structure}
-\begin{longtable}{|l|l|l|l|l|}
+\begin{xltabular}{1.01\linewidth}{|l|X|X|X|X|}
 \hline
 Structure&Notes&Operations&Time Efficiency& Space Efficiency\\\hline
-Stack & \stacknotes  &&\\\hline
-Queue & \tabitem &&&\\\hline
-Binary Search Tree &&&\\\hline
-\hline
-\end{longtable}
+Stack (CLSR pg 232) & \stacknotes & \stackoperations & \stacktime & \stackspace \\\hline
+Queue (CLSR pg 232) & \queuenotes & \queueoperations & \queuetime & \queuespace \\\hline
+Binary Search Tree (CLSR pg 286)& \bstnotes & \bstoperations & \bsttime & \bstspace \\\hline
+\end{xltabular}
 
 %%% % code from http://rosettacode.org/wiki/Fibonacci_sequence#Python
 %%% \begin{lstlisting}[label={list:first},caption=Sample Python code -- Fibonacci sequence calculated analytically.]
